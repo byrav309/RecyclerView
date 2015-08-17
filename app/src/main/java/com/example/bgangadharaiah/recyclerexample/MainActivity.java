@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.addItemDecoration( new SimpleDividerItemDecoration(this));
+      //  mRecyclerView.addItemDecoration( new SimpleDividerItemDecoration(this));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mPackageManager = getPackageManager();
         new LoadApplications().execute();
