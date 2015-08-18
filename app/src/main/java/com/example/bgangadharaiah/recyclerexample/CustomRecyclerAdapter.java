@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -26,6 +28,11 @@ public class CustomRecyclerAdapter extends RecyclerView.Adapter<CustomRecyclerAd
         this.mAppInfo = list;
         this.mContext = context;
         mPackageManager = context.getPackageManager();
+        Collections.sort(mAppInfo, new Comparator<ApplicationInfo>(){
+            public int compare(ApplicationInfo appInfo1, ApplicationInfo appInfo2) {
+                return appInfo1.loadLabel(mPackageManager).toString().compareToIgnoreCase(appInfo2.loadLabel(mPackageManager).toString());
+            }
+        });
     }
 
     @Override
